@@ -1,0 +1,76 @@
+{
+  "IAB-TCF": {
+    "euconsent-v2": {
+      "type": "cookie",
+      "purpose": "Stores encoded IAB Transparency & Consent Framework string (TCF v2)",
+      "format": "Base64",
+      "values": {
+        "structure": "Encodes vendor- and purpose-level consent flags per IAB spec",
+        "reference": "https://iabeurope.eu/tcf-2-0/"
+      }
+    }
+  },
+  "OneTrust": {
+    "OptanonConsent": {
+      "type": "cookie",
+      "purpose": "Stores consent per category (C0001 = Strictly Necessary, C0002 = Performance, etc.)",
+      "format": "URL-encoded key=value pairs",
+      "values": {
+        "groups": {
+          "C0001": "Strictly Necessary",
+          "C0002": "Performance Cookies",
+          "C0003": "Functional Cookies",
+          "C0004": "Targeting Cookies"
+        },
+        "example": "groups=C0001:1,C0002:0,C0003:0,C0004:1"
+      }
+    }
+  },
+  "Cookiebot": {
+    "CookieConsent": {
+      "type": "cookie",
+      "purpose": "Stores booleans per category",
+      "format": "JSON string",
+      "values": {
+        "keys": {
+          "necessary": true,
+          "preferences": false,
+          "statistics": true,
+          "marketing": false
+        },
+        "example": "{\"necessary\":true,\"preferences\":false,\"statistics\":true,\"marketing\":false}"
+      }
+    }
+  },
+  "Didomi": {
+    "didomi_token": {
+      "type": "cookie",
+      "purpose": "JWT-like token encoding consent string",
+      "format": "Base64 / JWT",
+      "values": {
+        "contains": [
+          "purposes_consent",
+          "vendors_consent",
+          "created",
+          "updated"
+        ],
+        "example": "{\"purposes_consent\":{\"marketing\":true},\"vendors_consent\":{\"google\":true}}"
+      }
+    }
+  },
+  "Termly": {
+    "termly-consent": {
+      "type": "cookie",
+      "purpose": "Stores user consent decisions per category",
+      "format": "JSON",
+      "values": {
+        "keys": {
+          "necessary": true,
+          "analytics": true,
+          "advertising": false
+        },
+        "example": "{\"necessary\":true,\"analytics\":true,\"advertising\":false}"
+      }
+    }
+  }
+}
